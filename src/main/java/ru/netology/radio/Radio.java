@@ -33,6 +33,7 @@ public class Radio {
         }
         setNumberOfStation(prevStation);
     }
+
     public int getVolume() {
         return volume;
     }
@@ -49,11 +50,9 @@ public class Radio {
 
     public void increaseVolume() {
         int highVolume = volume + 1;
-        if (highVolume > 10) {
-            highVolume = 10;
-        }
         setVolume(highVolume);
     }
+
     public void decreaseVolume() {
         int lowVolume = volume - 1;
         if (lowVolume < 0) {
