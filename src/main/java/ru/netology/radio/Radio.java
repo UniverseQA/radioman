@@ -33,4 +33,32 @@ public class Radio {
         }
         setNumberOfStation(prevStation);
     }
+    public int getVolume() {
+        return volume;
+    }
+
+    public void setVolume(int newVolume) {
+        if (newVolume < 0) {
+            return;
+        }
+        if (newVolume > 10) {
+            return;
+        }
+        volume = newVolume;
+    }
+
+    public void increaseVolume() {
+        int highVolume = volume + 1;
+        if (highVolume > 10) {
+            highVolume = 10;
+        }
+        setVolume(highVolume);
+    }
+    public void decreaseVolume() {
+        int lowVolume = volume - 1;
+        if (lowVolume < 0) {
+            lowVolume = 0;
+        }
+        setVolume(lowVolume);
+    }
 }
