@@ -18,4 +18,17 @@ public class RadioTest {
 
         Assertions.assertEquals(expected, actual);
     }
+    @Test
+        public void shouldSwitchPrevStation() {
+        Radio radio = new Radio();
+
+        radio.setNumberOfStation(0);
+
+        radio.prev();
+
+        int expected = 9;
+        int actual = radio.getNumberOfStation();
+
+        Assertions.assertEquals(expected, actual);
+    }
 }

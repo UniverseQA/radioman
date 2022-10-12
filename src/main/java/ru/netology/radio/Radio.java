@@ -25,4 +25,12 @@ public class Radio {
         }
         setNumberOfStation(nextStation);
     }
+
+    public void prev() {
+        int prevStation = numberOfStation - 1;
+        if (prevStation < 0) {
+            prevStation = 9;
+        }
+        setNumberOfStation(prevStation);
+    }
 }
