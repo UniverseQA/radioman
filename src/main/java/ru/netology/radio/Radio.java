@@ -1,6 +1,13 @@
 package ru.netology.radio;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import java.util.stream.IntStream;
+@NoArgsConstructor
+@AllArgsConstructor
+@Data
 
 public class Radio {
 
@@ -8,9 +15,6 @@ public class Radio {
     int[] defaultQuantityOfStation = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
     int maxNumberOfStation = defaultQuantityOfStation[9];
     int minNumberOfStation = defaultQuantityOfStation[0];
-
-    public Radio () {
-    }
 
     public Radio (int[] defaultQuantityOfStation) {
         int i = defaultQuantityOfStation.length - 1;
