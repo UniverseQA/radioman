@@ -21,7 +21,7 @@ public class RadioTest {
 
     @Test
     public void shouldSwitchNextStationFrom25() {
-        Radio radio = new Radio(new int[25]);
+        Radio radio = new Radio(25);
 
         radio.setNumberOfStation(24);
 

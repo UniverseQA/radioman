@@ -4,26 +4,27 @@ import java.util.stream.IntStream;
 
 public class Radio {
 
-    public int currentNumberOfStation;
-    int[] defaultQuantityOfStation = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
-    int maxNumberOfStation = defaultQuantityOfStation[9];
-    int minNumberOfStation = defaultQuantityOfStation[0];
+    private int currentNumberOfStation;
+    private int defaultQuantityOfStation;
+    private int maxNumberOfStation;
+    private int minNumberOfStation;
 
     public Radio () {
+        this.defaultQuantityOfStation = 10;
+        this.maxNumberOfStation = defaultQuantityOfStation - 1;
+        this.minNumberOfStation = defaultQuantityOfStation - defaultQuantityOfStation;
     }
 
-    public Radio (int[] defaultQuantityOfStation) {
-        int i = defaultQuantityOfStation.length - 1;
+    public Radio (int defaultQuantityOfStation) {
         this.defaultQuantityOfStation = defaultQuantityOfStation;
-        defaultQuantityOfStation = IntStream.rangeClosed(0, defaultQuantityOfStation.length - 1).toArray();
-        this.minNumberOfStation = defaultQuantityOfStation[0];
-        this.maxNumberOfStation = defaultQuantityOfStation[i];
+        this.minNumberOfStation = defaultQuantityOfStation - defaultQuantityOfStation;
+        this.maxNumberOfStation = defaultQuantityOfStation - 1;
     }
 
-    public int currentVolume;
-    int[] volume = IntStream.rangeClosed(0, 100).toArray();
-    int maxVolume = volume[100];
-    int minVolume = volume[0];
+    private int currentVolume;
+    private int[] volume = IntStream.rangeClosed(0, 100).toArray();
+    private int maxVolume = volume[100];
+    private int minVolume = volume[0];
 
 
     public int getNumberOfStation() {
@@ -42,19 +43,19 @@ public class Radio {
     }
 
     public void next() {
-        int nextStation = currentNumberOfStation + 1;
-        if (nextStation > maxNumberOfStation) {
-            nextStation = minNumberOfStation;
+        if (currentNumberOfStation < maxNumberOfStation) {
+            currentNumberOfStation++;
+        } else {
+            currentNumberOfStation = minNumberOfStation;
         }
-        setNumberOfStation(nextStation);
     }
 
     public void prev() {
-        int prevStation = currentNumberOfStation - 1;
-        if (prevStation < minNumberOfStation) {
-            prevStation = maxNumberOfStation;
+        if (currentNumberOfStation > minNumberOfStation) {
+            currentNumberOfStation--;
+        } else {
+            currentNumberOfStation = maxNumberOfStation;
         }
-        setNumberOfStation(prevStation);
     }
 
     public int getVolume() {
