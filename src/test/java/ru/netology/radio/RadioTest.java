@@ -129,6 +129,19 @@ public class RadioTest {
     }
 
     @Test
+    public void shouldIncreaseAboveMaxVolume() {
+        Radio radio = new Radio();
+
+        radio.setVolume(1010);
+        radio.increaseVolume();
+
+        int expected = 1;
+        int actual = radio.getVolume();
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
     public void shouldDecreaseVolume() {
         Radio radio = new Radio();
 

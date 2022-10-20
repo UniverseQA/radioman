@@ -22,9 +22,9 @@ public class Radio {
     }
 
     private int currentVolume;
-    private int[] volume = IntStream.rangeClosed(0, 100).toArray();
-    private int maxVolume = volume[100];
-    private int minVolume = volume[0];
+    private int volume = 101;
+    private int maxVolume = 100;
+    private int minVolume = 0;
 
 
     public int getNumberOfStation() {
@@ -73,15 +73,18 @@ public class Radio {
     }
 
     public void increaseVolume() {
-        int highVolume = currentVolume + 1;
-        setVolume(highVolume);
+        if (currentVolume < maxVolume) {
+            currentVolume++;
+        } else {
+            currentVolume = maxVolume;
+        }
     }
 
     public void decreaseVolume() {
-        int lowVolume = currentVolume - 1;
-        if (lowVolume < minVolume) {
-            lowVolume = minVolume;
+        if (currentVolume > minVolume) {
+            currentVolume --;
+        } else {
+            currentVolume = minVolume;
         }
-        setVolume(lowVolume);
     }
 }
