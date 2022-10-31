@@ -8,6 +8,10 @@ public class Radio {
     private int defaultQuantityOfStation;
     private int maxNumberOfStation;
     private int minNumberOfStation;
+    private int currentVolume;
+    private int volume = 101;
+    private int maxVolume = 100;
+    private int minVolume = 0;
 
     public Radio () {
         this.defaultQuantityOfStation = 10;
@@ -20,12 +24,6 @@ public class Radio {
         this.minNumberOfStation = defaultQuantityOfStation - defaultQuantityOfStation;
         this.maxNumberOfStation = defaultQuantityOfStation - 1;
     }
-
-    private int currentVolume;
-    private int volume = 101;
-    private int maxVolume = 100;
-    private int minVolume = 0;
-
 
     public int getNumberOfStation() {
 
